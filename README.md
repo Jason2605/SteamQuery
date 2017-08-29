@@ -14,7 +14,7 @@ SteamQuery is very simple to use
 >>> return_dictionary
 >>> {'online': True, 'ip': 'ip', 'port': port, 'name': 'name', 'map': 'map', 'game': 'game', 'description': 'server desc', 'players': players, 'max_players': slots, 'bots': bots, 'password_required': bool, 'vac_secure': bool, 'server-type': 'type', 'os': 'os'}
 >>> return_dictionary["players"]
->>> 10
+>>> 10  # Example as the dictionary above just has 'players'
 ```
 
 If the server is offline
