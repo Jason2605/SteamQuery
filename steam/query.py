@@ -2,10 +2,10 @@ import socket
 
 
 class ServerQuery:
-    def __init__(self, ip='127.0.0.1', port=2303):
+    def __init__(self, ip='127.0.0.1', port=2303, timeout=1):
         self.ip = ip
         self.port = port
-        self.timeout = 1
+        self.timeout = timeout
         self.server_info = None
 
     def query_game_server(self):
@@ -18,11 +18,13 @@ class ServerQuery:
             server_info = self._sort_data(data)
             if server_info is not None:
                 return server_info
-            return {'online': False, 'error': 'unknown'}
+            return {'online': False, 'error': 'Unknown error'}
         except socket.timeout:
-            return {'online': False, 'error': 'timed_out'}
+            return {'online': False, 'error': 'Request timed out'}
         except Exception as e:
-            return {'online': False, 'error': e}
+            return {'online': False, 'error': str(e)}
+        finally:
+            udpsock.close()
 
     def _sort_data(self, data):
         if data:
@@ -44,11 +46,11 @@ class ServerQuery:
             server_type = chr(in_data[5])
             os = chr(in_data[6])
             if server_type == 'd':
-                server_info['server-type'] = 'Dedicated'
+                server_info['server_type'] = 'Dedicated'
             elif server_type == 'l':
-                server_info['server-type'] = 'Non-Dedicated'
+                server_info['server_type'] = 'Non-Dedicated'
             else:
-                server_info['server-type'] = 'SourceTV'
+                server_info['server_type'] = 'SourceTV'
             if os == 'w':
                 server_info['os'] = 'Windows'
             elif os == 'l':
