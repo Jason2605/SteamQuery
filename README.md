@@ -6,7 +6,8 @@ SteamQuery allows you to gather information about a steam server and return it i
 
 SteamQuery is very simple to use
 ```python
->>> server_obj = ServerQuery("serverip", port, timeout)
+>>> from steam import SteamQuery
+>>> server_obj = SteamQuery("serverip", port, timeout)
 >>> return_dictionary = server_obj.return_last_data()  # This will store the last results so you dont need to query again
 # OR
 >>> return_dictionary = server_obj.query_game_server() # New results, also saved and can be retrieved via the return_last_data method
@@ -18,14 +19,16 @@ SteamQuery is very simple to use
 
 If the server is offline
 ```python
->>> server_obj = ServerQuery("serverip", port, timeout)
+>>> from steam import SteamQuery
+>>> server_obj = SteamQuery("serverip", port, timeout)
 >>> return_dictionary = server_obj.return_last_data()
 >>> return_dictionary
 >>> {'online': False, 'error': 'Request timed out'}
 ```
 Timeout has a default value of 1 second, however a different integer can be passed
 ```python
->>> server_obj = ServerQuery("serverip", port, 2)  # 2 seconds
+>>> from steam import SteamQuery
+>>> server_obj = SteamQuery("serverip", port, 2)  # 2 seconds
 ```
 
 ##### The return will be a dictionary, the keys and types for the dictionary are as follows

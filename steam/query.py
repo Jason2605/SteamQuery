@@ -1,7 +1,7 @@
 import socket
 
 
-class ServerQuery:
+class SteamQuery:
     def __init__(self, ip='127.0.0.1', port=2303, timeout=1):
         self.ip = ip
         self.port = port
