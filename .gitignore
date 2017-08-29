@@ -2,3 +2,17 @@
 \.DS_Store
 
 \.idea/
+
+dist/
+
+setup\.cfg
+
+setup\.py
+
+SteamQuery\.egg-info/
+
+*.pyc
+
+build/lib/steam/__init__\.py
+
+build/lib/steam/query\.py
