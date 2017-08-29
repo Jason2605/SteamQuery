@@ -46,3 +46,6 @@ Timeout has a default value of 1 second, however a different integer can be pass
 * vac_secure: Boolean
 * server_type: String (Dedicated/Non-Dedicated/SourceTV)
 * os: String (Windows/Linux/Mac)
+
+## Note
+This was made for python 3 and has no support for python 2
