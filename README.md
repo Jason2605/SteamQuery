@@ -2,6 +2,12 @@
 
 SteamQuery allows you to gather information about a steam server and return it in a dictionary format
 
+## Installing
+
+```bash
+$ pip install steamquery
+```
+
 ## How to use
 
 SteamQuery is very simple to use
