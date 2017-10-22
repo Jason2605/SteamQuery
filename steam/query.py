@@ -9,6 +9,7 @@ class SteamQuery:
         self.server_info = None
 
     def query_game_server(self):
+        """Main function that creates the socket connection to the steam API"""
         try:
             udpsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             udpsock.settimeout(self.timeout)
@@ -27,6 +28,7 @@ class SteamQuery:
             udpsock.close()
 
     def _sort_data(self, data):
+        """Sorts the returned data from the API into a python dictionary"""
         if data:
             server_info = {}
             data = data[6:].split(b'\x00', 4)
@@ -62,6 +64,7 @@ class SteamQuery:
         return None
 
     def return_last_data(self):
+        """Returns the saved dictionary, or queries if the dictionary hasnt yet been formed"""
         if self.server_info is None:
             return self.query_game_server()
         return self.server_info
