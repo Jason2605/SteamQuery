@@ -162,7 +162,7 @@ class SteamQuery:
             return
 
         server_info = {}
-        data = data[6:].split(b'\x00', 4)
+        data = data[2:].split(b'\x00', 4)
         server_info['online'] = True
         server_info['ip'] = self.ip
         server_info['port'] = self.port
