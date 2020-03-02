@@ -131,6 +131,7 @@ class SteamQuery:
             # Just split on null-bytes and then
             # zip the list with itself to get the pairs.
             rules_strings = rules_data.split(b"\x00")
+            rules_strings = [b.decode() for b in rules_strings]
             rules_pairs = zip(rules_strings[::2], rules_strings[1::2])
             rules = dict(rules_pairs)
 
