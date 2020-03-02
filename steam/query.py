@@ -82,6 +82,7 @@ class SteamQuery:
             for i in range(player_amount):
                 index = player_data[0]
                 name, _, player_data = player_data[1:].partition(b"\x00")
+                name = name.decode()
                 score, duration = struct.unpack("<if", player_data[:8])
                 player_data = player_data[8:]
                 player = Player(index, name, score, duration)
