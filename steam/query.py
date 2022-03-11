@@ -59,8 +59,9 @@ class SteamQuery:
 
     @_query_function
     def _query_server_info(self, *, udpsock) -> dict:
-        payload = A2S_INFO_HEADER + A2S_INFO_PAYLOAD
-        data = self._make_request(udpsock, payload)
+        data = self._make_challenged_request(
+            udpsock, A2S_INFO_HEADER + A2S_INFO_PAYLOAD
+        )
         server_info = self._unpack_server_data(data)
         if server_info is not None:
             return server_info

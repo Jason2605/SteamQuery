@@ -16,3 +16,5 @@ SteamQuery\.egg-info/
 build/lib/steam/__init__\.py
 
 build/lib/steam/query\.py
+
+venv
